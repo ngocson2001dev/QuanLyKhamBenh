@@ -5,7 +5,7 @@ let hashUserPassword = (password) => {
   return new Promise(async (resolve, reject) => {
     try {
       var salt = bcrypt.genSaltSync(10);
-      var hashPassword = await bcrypt.hashSync("B4c0//", salt);
+      var hashPassword = await bcrypt.hashSync(password, salt);
       resolve(hashPassword);
     } catch (e) {
       reject(e);
