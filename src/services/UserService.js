@@ -57,14 +57,14 @@ let getAllUsers = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
       let users = "";
-      if (userId === "All") {
+      if (userId === "all") {
         users = await db.User.findAll({
           attributes: {
             exclude: ["password"],
           },
         });
       }
-      if (userId && userId !== "All") {
+      if (userId && userId !== "all") {
         users = await db.User.findOne({
           where: { id: userId },
           attributes: {
@@ -78,6 +78,7 @@ let getAllUsers = (userId) => {
     }
   });
 };
+
 module.exports = {
   handleUserLoginService: handleUserLogin,
   getAllUsersService: getAllUsers,

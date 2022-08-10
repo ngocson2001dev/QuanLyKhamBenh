@@ -37,6 +37,7 @@ let handleGetAllUsers = async (req, res) => {
 };
 
 let handleCreateUser = async (req, res) => {};
+
 module.exports = {
   handleLoginController: handleLogin,
   handleGetAllUsersController: handleGetAllUsers,
