@@ -123,8 +123,30 @@ let hashUserPassword = (password) => {
   });
 };
 
+let deleteUser = (id) => {
+  return new Promise(async (resolve, reject) => {
+    let user = await db.User.findOne({
+      where: { id: id }
+    });
+    if (!user) {
+      resolve({
+        errCode: 2,
+        errMessage: "Người dùng không tồn tại"
+      })
+    }
+    await db.User.destroy({
+      where: { id: id }
+    });
+    resolve({
+      errCode: 0,
+      message: "Xóa user thành công !"
+    })
+  })
+};
+
 module.exports = {
   handleUserLoginService: handleUserLogin,
   getAllUsersService: getAllUsers,
   createNewUserService: createNewUser,
+  deleteUserService: deleteUser
 };

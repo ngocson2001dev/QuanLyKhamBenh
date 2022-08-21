@@ -41,8 +41,20 @@ let handleCreateNewUser = async (req, res) => {
   return res.status(200).json(message);
 };
 
+let handleDeleteUser = async (req, res) => {
+  if (!req.body.id) {
+    return res.status(200).json({
+      errCode: 1,
+      errMessage: "Missing required parameters UserID!"
+    })
+  }
+  let message = await userService.deleteUserService(req.body.id);
+  return res.status(200).json(message);
+};
+
 module.exports = {
   handleLoginController: handleLogin,
   handleGetAllUsersController: handleGetAllUsers,
   handleCreateNewUserController: handleCreateNewUser,
+  handleDeleteUserController: handleDeleteUser
 };
