@@ -36,10 +36,13 @@ let handleGetAllUsers = async (req, res) => {
   });
 };
 
-let handleCreateUser = async (req, res) => {};
+let handleCreateNewUser = async (req, res) => {
+  let message = await userService.createNewUserService(req.body);
+  return res.status(200).json(message);
+};
 
 module.exports = {
   handleLoginController: handleLogin,
   handleGetAllUsersController: handleGetAllUsers,
-  handleCreateUserController: handleCreateUser,
+  handleCreateNewUserController: handleCreateNewUser,
 };
