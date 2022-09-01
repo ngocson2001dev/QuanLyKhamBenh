@@ -70,8 +70,7 @@ let updateUserService = (data) => {
           (user.address = data.address),
           (user.phoneNumber = data.phoneNumber),
           (user.gender = data.gender),
-          console.log(user);
-        await user.save();
+          await user.save();
         resolve();
       } else {
         resolve();
