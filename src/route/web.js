@@ -19,7 +19,7 @@ let initWebRouter = (app) => {
   router.put("/api/edit-user", userController.handleEditUserController);
   router.delete("/api/delete-user", userController.handleDeleteUserController);
 
-  router.get("/allcode", userController.getAllCodeController);
+  router.get("/api/allcode", userController.getAllCodeController);
 
   return app.use("/", router);
 };

@@ -198,7 +198,7 @@ let getAllCode = (typeInput) => {
         resolve(res);
       }
     } catch (error) {
-
+      reject(error)
     }
   })
 }
