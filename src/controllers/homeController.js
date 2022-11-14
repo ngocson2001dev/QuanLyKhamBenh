@@ -13,7 +13,7 @@ let getHomePage = async (req, res) => {
     return res.render("homePage.ejs", {
       data: JSON.stringify(data),
     });
-  } catch (error) {}
+  } catch (error) { }
 };
 
 let getCRUD = (req, res) => {
@@ -22,7 +22,6 @@ let getCRUD = (req, res) => {
 
 let postCRUD = async (req, res) => {
   let mess = await createNewUserService(req.body);
-  console.log(mess);
   return res.send("crud.ejs");
 };
 

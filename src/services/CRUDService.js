@@ -37,9 +37,7 @@ let createNewUserService = async (data) => {
 let getAllUserService = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      let users = db.User.findAll({
-        raw: true,
-      });
+      let users = db.User.findAll();
       resolve(users);
     } catch (error) {
       reject(error);
@@ -52,7 +50,6 @@ let getUserByIdService = (userid) => {
     try {
       let user = await db.User.findOne({
         where: { id: userid },
-        raw: true,
       });
       user ? resolve(user) : resolve({});
     } catch (error) {
@@ -73,8 +70,7 @@ let updateUserService = (data) => {
           (user.address = data.address),
           (user.phoneNumber = data.phoneNumber),
           (user.gender = data.gender),
-          console.log(user);
-        await user.save();
+          await user.save();
         resolve();
       } else {
         resolve();

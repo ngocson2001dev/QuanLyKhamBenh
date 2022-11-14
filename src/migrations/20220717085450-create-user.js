@@ -21,16 +21,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       gender: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
       },
       phoneNumber: {
         type: Sequelize.STRING,
       },
       image: {
-        type: Sequelize.STRING,
-      },
-      address: {
-        type: Sequelize.STRING,
+        type: Sequelize.BLOB('long'),
       },
       address: {
         type: Sequelize.STRING,
